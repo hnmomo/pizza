@@ -62,7 +62,6 @@ var enemy = {
     crit: 0.1
 }
 
-
 var phasercd=0;
 setInterval(function() {
     if(phasercd>0){
