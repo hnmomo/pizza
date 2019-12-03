@@ -32,7 +32,7 @@ var entp = new Image();
 entp.src = "enterprisesmall.png";
 var pizza = new Image();
 pizza.src = "pizza.png";
-
+ 
 function draw() {
     mapctx.drawImage(map1, 50, 0, mapw, maph, 0, 0, mapw, maph);
 }
