@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UFT-8">
+    <title>Pizza Trek</title>
+    <style>
+        ul {
+            list-style: none;
+            padding-left: 12px;
+            list-style-type: none;
+        }
+
+        .pnl {
+            position: absolute;
+            border: 1px solid #000;
+            background-color: white;
+            width: 250px;
+            height: 230px;
+            z-index: 50;
+            padding-top: 8px;
+            left: 100px;
+            top: 30px;
+            word-wrap: break-word;
+        }
+
+        Canvas {
+            border: 1px solid #000
+        }
+
+        .map {
+            float: left;
+        }
+
+
+        .log {
+            border: 1px solid #000;
+            position: absolute;
+            left: 8px;
+            top: 314px;
+            width: 400px;
+            height: 110px;
+            word-wrap: break-word;
+            overflow-y: auto;
+        }
+
+
+        .npc {
+            border: 1px solid #000;
+            position: absolute;
+            left: 414px;
+            top: 126px;
+            width: 168px;
+            height: 274px;
+            word-wrap: break-word;
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+
+        .stat {
+            border: 1px solid #000;
+            position: absolute;
+            left: 414px;
+            top: 8px;
+            width: 180px;
+            height: 120px;
+        }
+
+        p {
+            margin: 0px 8px 0px 8px;
+        }
+
+        .next {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .profile {
+            padding-top: 2px;
+            padding-left: 10px;
+            width: 68px;
+            height: 68px;
+            float: left;
+        }
+
+        .unique:before {
+            content: attr(data-label);
+        }
+
+        .fullscreen-container {
+            display: block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(90, 90, 90, 0.5);
+            z-index: 9999;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="map" id="map">
+        <canvas id="mapcvs" width="400" height="300"></canvas>
+    </div>
+
+    <div class="log" id="log">
+        <p></p>
+
+    </div>
+    <div class="stat" style="padding-top: 8px">
+        <p>Pizza</p>
+        <p><progress id="phealth" value="100" max="100"></progress></p>
+        <p>Enterprise</p>
+        <p><progress id="health" class="unique" value="100" max="100" data-label="Hull"></progress></p>
+        <p><progress id="shield" class="unique" value="100" max="100" data-label="Shields"></progress></p>
+        <p><progress id="energy" class="unique" value="100" max="100" data-label="Energy"></progress></p>
+    </div>
+    <div class="fullscreen-container" id="bkgd">
+        <div class="pnl">
+            <div class="profile"><img id="pic" src="picard.gif" width="60" height="60"></div>
+            <p id="name">Picard:</p>
+            <p id="pn1"></p>
+            <div class="next"><a href="#" onclick="displaynext();">Next</a></div>
+        </div>
+    </div>
+    <ul class="npc" id="example_tree" style="padding-top: 8px">
+        <li><span><a href="#">- Tactical</a></span>
+            <ul>
+                <li><span><a href="#" onclick="phaser();">Phaser</a></span></li>
+                <li><span><a href="#" onclick="torpedo();">Torpedo</a></span></li>
+            </ul>
+        </li>
+        <li><span><a href="#">- Operations</a></span>
+            <ul>
+                <li><span><a href="#" onclick="tractor();">Tractor beam</a></span></li>
+                <li><span><a href="#" onclick="ensh();">Transfer energy to shields</a></span></li>
+                <li><span><a href="#" onclick="enwp();"> Transfer energy to weapons</a></span></li>
+                <li><span><a href="#" onclick="enen();">Transfer energy to engine</a></span></li>
+            </ul>
+        </li>
+        <li><span><a href="#">- Science</a></span>
+            <ul>
+                <li><span><a href="#" onclick="useless1();">Vent warp plasma</a></span></li>
+                <li><span><a href="#" onclick="useless2();">Static warp bubble</a></span></li>
+                <li><span><a href="#" onclick="useless3();">Inverse tachyon pulse</a></span></li>
+                <li><span><a href="#" onclick="useless4();">Reverse deflector polarity</a></span></li>
+                <li><span><a href="#" onclick="useless5();">Concentrated gravimetric wave</a></span></li>
+                <li><span><a href="#" onclick="useless6();">Asymmetrical verteron beam</a></span></li>
+            </ul>
+        </li>
+        <li><span><a href="#">- Crew</a></span>
+            <ul>
+                <li><span><a href="#" onclick="geo();">Lt. Cmd. Geordie LaForge</a></span></li>
+                <li id="will"><span><a href="#" onclick="will();">Cmd. Will Riker</a></span></li>
+                <li><span><a href="#" onclick="worf();">Lt. Cmd. Worf</a></span></li>
+                <li><span><a href="#" onclick="data();">Lt. Cmd. Data</a></span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <script src="game.js"></script>
+</body>
