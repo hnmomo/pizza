@@ -57,8 +57,8 @@ var enemy = {
     drain: 10,
     acc: 0.9,
     dodge: 0.9,
-    health: 100,
-    maxhealth: 100,
+    health: 10000,
+    maxhealth: 10000,
     crit: 0.1
 }
 
