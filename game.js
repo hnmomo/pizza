@@ -172,7 +172,6 @@ function torpedo() {
     var crit = Math.random();
     if (hit > hitchance) {
         message("Your torpedo <b>missed</b>.");
-        message(hit);
         return false;
     }
     var dmg = mult * player.dmgmult * player.torpedo;
